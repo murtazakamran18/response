@@ -211,7 +211,7 @@ async function loadStats() {
 
   const responsesContainer = document.getElementById("responsesContainer")
   responsesContainer.innerHTML = ""
-  data.slice(0, 10).forEach((response) => {
+  data.forEach((response) => {
     const responseEl = document.createElement("div")
     responseEl.className = "response-item"
     responseEl.innerHTML = `
@@ -221,6 +221,7 @@ async function loadStats() {
     `
     responsesContainer.appendChild(responseEl)
   })
+  
 }
 
 // Real-time updates

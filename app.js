@@ -107,6 +107,24 @@ noBtn.addEventListener("click", async () => {
     },
   ])
 })
+// Mobile touch fix for "No" button
+function enableNoButtonMobileFix() {
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (!isTouchDevice) return;
+
+  noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // Prevent hover/tap issues
+    const newX = Math.floor(Math.random() * questionContainer.offsetWidth);
+    const newY = Math.floor(Math.random() * questionContainer.offsetHeight);
+    noBtn.style.left = `${newX}px`;
+    noBtn.style.top = `${newY}px`;
+    noClickCount++;
+    soundManager.playBeep(300, 100);
+  }, { passive: false });
+}
+
+// Call it after defining noBtn
+enableNoButtonMobileFix();
 
 
 yesBtn.addEventListener("click", async () => {

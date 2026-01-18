@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <title>Do you love me?</title>
+</head>
+<body>
+
+<!-- Added name input modal -->
+<div class="name-modal" id="nameModal">
+  <div class="name-modal-content">
+    <h2>What's Your Name?</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name" class="name-input" />
+    <button class="name-submit-btn" id="nameSubmitBtn">Let's Go 💕</button>
+  </div>
+</div>
+
+<!-- Added storage toggle button and panel -->
+<button class="storage-toggle-btn" id="storageToggleBtn">📊 View Stats</button>
+
+<div class="stats-panel" id="statsPanel">
+  <div class="stats-header">
+    <h3>Response Statistics</h3>
+    <button class="stats-close-btn" id="statsCloseBtn">✕</button>
+  </div>
+  <div class="stats-password-form" id="statsPasswordForm">
+    <input type="password" id="statsPassword" placeholder="Enter password" class="stats-password-input" />
+    <button class="stats-unlock-btn" id="statsUnlockBtn">Unlock</button>
+  </div>
+  <div class="stats-content" id="statsContent" style="display: none;">
+    <div class="stats-item">
+      <span>Total Responses:</span>
+      <span id="totalResponses">0</span>
+    </div>
+    <div class="stats-item">
+      <span>Yes Answers:</span>
+      <span id="yesCount">0</span>
+    </div>
+    <div class="stats-item">
+      <span>No Attempts:</span>
+      <span id="noCount">0</span>
+    </div>
+    <div class="stats-item">
+      <span>Success Rate:</span>
+      <span id="successRate">0%</span>
+    </div>
+    <div class="responses-list" id="responsesList">
+      <h4>Recent Responses:</h4>
+      <div id="responsesContainer"></div>
+    </div>
+  </div>
+</div>
+
+<div class="question-container container">
+  <video class="local-gif" src="Yes you are! __.mp4" autoplay muted loop></video>
+  <h2 class="question">Do you love me?</h2>
+  <div class="button-container">
+    <button class="yes-btn btn js-yes-btn">Yes</button>
+    <button class="no-btn btn js-no-btn">No</button>
+  </div>
+</div>
+
+<div class="result-container container">
+  
+  <h2>I knew it😍!</h2>
+  <!-- Added user name display -->
+  <p class="result-name" id="resultName"></p>
+  <button class="reset-btn" id="resetBtn">Try Again</button>
+</div>
+
+<div class="cssload-main">
+  <div class="cssload-heart">
+    <span class="cssload-heartL"></span>
+    <span class="cssload-heartR"></span>
+    <span class="cssload-square"></span>
+  </div>
+  <div class="cssload-shadow"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

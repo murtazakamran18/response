@@ -1,0 +1,650 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* Changed background from pink (#ffe6e9) to light blue */
+  background-color: #e0f4ff;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-100%, -50%);
+  transition: 0.2s;
+}
+
+.question-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transition: 0.2s;
+}
+
+.local-gif {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 3rem auto;
+  pointer-events: none;
+}
+
+.question {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.btn {
+  position: absolute;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Changed button colors from pink to light blue theme */
+  background-color: #4da6ff;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(77, 166, 255, 0.5);
+}
+
+.btn:hover {
+  background-color: #80c4ff;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 20px rgba(77, 166, 255, 0.7);
+  text-shadow: 1px 1px 5px rgba(128, 196, 255, 0.8);
+}
+
+.yes-btn {
+  right: 54%;
+}
+
+.no-btn {
+  left: 54%;
+}
+
+.result-container {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-100%, -50%);
+  transition: 0.2s;
+  text-align: center;
+}
+
+.gif-result {
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  max-width: 300px;
+  width: 100%;
+}
+
+.result-container h2 {
+  font-size: 3.2rem;
+  text-align: center;
+  /* Added name display styling */
+  color: #0066cc;
+}
+
+.result-name {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.reset-btn {
+  margin-top: 2rem;
+  padding: 10px 30px;
+  background-color: #4da6ff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+  background-color: #80c4ff;
+  transform: scale(1.05);
+}
+
+/* Name input modal styles */
+.name-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.name-modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: modalSlideIn 0.3s ease;
+}
+
+.name-modal-content h2 {
+  font-size: 2rem;
+  color: #0066cc;
+  margin-bottom: 20px;
+}
+
+.name-input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #4da6ff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 8px rgba(77, 166, 255, 0.3);
+}
+
+.name-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4da6ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.name-submit-btn:hover {
+  background-color: #0066cc;
+  transform: scale(1.02);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Storage toggle button styles */
+.storage-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #4da6ff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(77, 166, 255, 0.4);
+  transition: all 0.3s ease;
+  z-index: 500;
+}
+
+.storage-toggle-btn:hover {
+  background-color: #0066cc;
+  transform: scale(1.05);
+}
+
+/* Stats panel styles */
+.stats-panel {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 380px;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  z-index: 800;
+  padding: 20px;
+}
+
+.stats-panel.open {
+  right: 0;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4da6ff;
+  padding-bottom: 15px;
+}
+
+.stats-header h3 {
+  color: #0066cc;
+  font-size: 1.5rem;
+}
+
+.stats-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #0066cc;
+}
+
+.stats-password-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stats-password-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #4da6ff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.stats-password-input:focus {
+  outline: none;
+  border-color: #0066cc;
+}
+
+.stats-unlock-btn {
+  padding: 10px 20px;
+  background-color: #4da6ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stats-unlock-btn:hover {
+  background-color: #0066cc;
+}
+
+.stats-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #f0f8ff;
+  border-radius: 6px;
+  border-left: 4px solid #4da6ff;
+}
+
+.stats-item span:first-child {
+  color: #0066cc;
+  font-weight: 600;
+}
+
+.stats-item span:last-child {
+  color: #0066cc;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.responses-list {
+  margin-top: 20px;
+  border-top: 2px solid #4da6ff;
+  padding-top: 15px;
+}
+
+.responses-list h4 {
+  color: #0066cc;
+  margin-bottom: 10px;
+}
+
+.response-item {
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #f0f8ff;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #0066cc;
+}
+
+/* Heart loader - all existing animations kept same */
+.cssload-main {
+  display: none;
+  position: absolute;
+  content: "";
+  top: 17%;
+  left: 50%;
+  margin: 200px auto 0 auto;
+  transform: translate(-100%, -50%);
+  -o-transform: translate(-100%, -240%);
+  -ms-transform: translate(-100%, -240%);
+  -webkit-transform: translate(-100%, -240%);
+  -moz-transform: translate(-100%, -240%);
+}
+
+.cssload-main * {
+  font-size: 62px;
+}
+
+.cssload-heart {
+  animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -o-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -ms-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -webkit-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -moz-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  top: 50%;
+  content: "";
+  left: 50%;
+  position: absolute;
+}
+
+@keyframes cssload-heart {
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@-o-keyframes cssload-heart {
+  50% {
+    -o-transform: rotate(360deg);
+  }
+  100% {
+    -o-transform: rotate(720deg);
+  }
+}
+
+@-ms-keyframes cssload-heart {
+  50% {
+    -ms-transform: rotate(360deg);
+  }
+  100% {
+    -ms-transform: rotate(720deg);
+  }
+}
+
+@-webkit-keyframes cssload-heart {
+  50% {
+    -webkit-transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(720deg);
+  }
+}
+
+@-moz-keyframes cssload-heart {
+  50% {
+    -moz-transform: rotate(360deg);
+  }
+  100% {
+    -moz-transform: rotate(720deg);
+  }
+}
+
+@keyframes cssload-heartL {
+  60% {
+    transform: scale(0.4);
+  }
+}
+
+@-o-keyframes cssload-heartL {
+  60% {
+    -o-transform: scale(0.4);
+  }
+}
+
+@-ms-keyframes cssload-heartL {
+  60% {
+    -ms-transform: scale(0.4);
+  }
+}
+
+@-webkit-keyframes cssload-heartL {
+  60% {
+    -webkit-transform: scale(0.4);
+  }
+}
+
+@-moz-keyframes cssload-heartL {
+  60% {
+    -moz-transform: scale(0.4);
+  }
+}
+
+@keyframes cssload-heartR {
+  40% {
+    transform: scale(0.4);
+  }
+}
+
+@-o-keyframes cssload-heartR {
+  40% {
+    -o-transform: scale(0.4);
+  }
+}
+
+@-ms-keyframes cssload-heartR {
+  40% {
+    -ms-transform: scale(0.4);
+  }
+}
+
+@-webkit-keyframes cssload-heartR {
+  40% {
+    -webkit-transform: scale(0.4);
+  }
+}
+
+@-moz-keyframes cssload-heartR {
+  40% {
+    -moz-transform: scale(0.4);
+  }
+}
+
+@keyframes cssload-shadow {
+  50% {
+    transform: scale(0.5);
+    border-color: rgb(228, 228, 228);
+  }
+}
+
+@-o-keyframes cssload-shadow {
+  50% {
+    -o-transform: scale(0.5);
+    border-color: rgb(228, 228, 228);
+  }
+}
+
+@-ms-keyframes cssload-shadow {
+  50% {
+    -ms-transform: scale(0.5);
+    border-color: rgb(228, 228, 228);
+  }
+}
+
+@-webkit-keyframes cssload-shadow {
+  50% {
+    -webkit-transform: scale(0.5);
+    border-color: rgb(228, 228, 228);
+  }
+}
+
+@-moz-keyframes cssload-shadow {
+  50% {
+    -moz-transform: scale(0.5);
+    border-color: rgb(228, 228, 228);
+  }
+}
+
+@keyframes cssload-square {
+  50% {
+    border-radius: 100%;
+    transform: scale(0.5) rotate(-45deg);
+  }
+  100% {
+    transform: scale(1) rotate(-45deg);
+  }
+}
+
+@-o-keyframes cssload-square {
+  50% {
+    border-radius: 100%;
+    -o-transform: scale(0.5) rotate(-45deg);
+  }
+  100% {
+    -o-transform: scale(1) rotate(-45deg);
+  }
+}
+
+@-ms-keyframes cssload-square {
+  50% {
+    border-radius: 100%;
+    -ms-transform: scale(0.5) rotate(-45deg);
+  }
+  100% {
+    -ms-transform: scale(1) rotate(-45deg);
+  }
+}
+
+@-webkit-keyframes cssload-square {
+  50% {
+    border-radius: 100%;
+    -webkit-transform: scale(0.5) rotate(-45deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(-45deg);
+  }
+}
+
+@-moz-keyframes cssload-square {
+  50% {
+    border-radius: 100%;
+    -moz-transform: scale(0.5) rotate(-45deg);
+  }
+  100% {
+    -moz-transform: scale(1) rotate(-45deg);
+  }
+}
+
+.cssload-heartL {
+  width: 1em;
+  height: 1em;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -o-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -ms-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -webkit-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -moz-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  transform: translate(-28px, -27px);
+  -o-transform: translate(-28px, -27px);
+  -ms-transform: translate(-28px, -27px);
+  -webkit-transform: translate(-28px, -27px);
+  -moz-transform: translate(-28px, -27px);
+}
+
+.cssload-heartR {
+  width: 1em;
+  height: 1em;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 100%;
+  transform: translate(28px, -27px);
+  -o-transform: translate(28px, -27px);
+  -ms-transform: translate(28px, -27px);
+  -webkit-transform: translate(28px, -27px);
+  -moz-transform: translate(28px, -27px);
+  animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -o-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -ms-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -webkit-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -moz-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+}
+
+.cssload-square {
+  width: 1em;
+  height: 1em;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
+  position: relative;
+  display: block;
+  content: "";
+  transform: scale(1) rotate(-45deg);
+  -o-transform: scale(1) rotate(-45deg);
+  -ms-transform: scale(1) rotate(-45deg);
+  -webkit-transform: scale(1) rotate(-45deg);
+  -moz-transform: scale(1) rotate(-45deg);
+  animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -o-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -ms-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -webkit-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -moz-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+}
+
+.cssload-shadow {
+  top: 97px;
+  left: 50%;
+  content: "";
+  position: relative;
+  display: block;
+  bottom: -0.5em;
+  width: 1em;
+  height: 0.24em;
+  background-color: rgb(215, 215, 215);
+  border: 1px solid rgb(215, 215, 215);
+  border-radius: 50%;
+  animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -o-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -ms-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -webkit-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+  -moz-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+}

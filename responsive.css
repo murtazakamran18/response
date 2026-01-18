@@ -1,0 +1,71 @@
+/* Small devices - mobile phones */
+@media only screen and (max-width: 480px) {
+    .question {
+      font-size: 2rem; /* chhota text */
+      text-align: center;
+    }
+  
+    .result-container h2 {
+      font-size: 2rem;
+    }
+  
+    .result-name {
+      font-size: 1.2rem;
+    }
+  
+    .btn {
+      font-size: 16px;
+      padding: 8px 16px;
+    }
+  
+    .name-modal-content {
+      padding: 25px;
+    }
+  
+    .name-modal-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .name-input,
+    .name-submit-btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .container,
+    .question-container,
+    .result-container {
+      width: 90%; /* Ensure it fits mobile screen */
+    }
+  
+    .local-gif,
+    .gif-result {
+      max-width: 90%;
+    }
+  }
+  
+  /* Medium devices - tablets */
+  @media only screen and (max-width: 768px) {
+    .question {
+      font-size: 2.5rem;
+    }
+  
+    .result-container h2 {
+      font-size: 2.5rem;
+    }
+  
+    .result-name {
+      font-size: 1.3rem;
+    }
+  
+    .btn {
+      font-size: 17px;
+      padding: 9px 18px;
+    }
+  
+    .local-gif,
+    .gif-result {
+      max-width: 250px;
+    }
+  }
+  

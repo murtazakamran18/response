@@ -234,21 +234,42 @@ body {
 /* Stats panel styles */
 .stats-panel {
   position: fixed;
-  right: -400px;
+  right: -100%; /* responsive */
   top: 0;
-  width: 380px;
+  width: 90%; /* chhoti screens ke liye */
+  max-width: 400px; /* desktop ke liye limit */
   height: 100vh;
   background: white;
   box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
   transition: right 0.3s ease;
-  overflow-y: auto;
+  overflow-y: auto; /* scroll allowed */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
   z-index: 800;
   padding: 20px;
 }
 
+/* Open state */
 .stats-panel.open {
   right: 0;
 }
+
+/* For very small screens, reduce padding */
+@media screen and (max-height: 600px) {
+  .stats-panel {
+    padding: 10px;
+  }
+  .responses-list {
+    max-height: 300px; /* prevent super long scroll */
+    overflow-y: auto;
+  }
+}
+
+/* Responses list scroll properly */
+.responses-list {
+  max-height: 400px; /* adjust as needed */
+  overflow-y: auto;
+}
+
 
 .stats-header {
   display: flex;
